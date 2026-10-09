@@ -43,9 +43,9 @@ export class ActivityLogController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Permissions('delete_activity')
-    async remove(@Param('id', PositiveIntPipe) id: number) {
-        await this.activityLogService.remove(id);
+    remove(@Param('id', PositiveIntPipe) id: number) {
+        return this.activityLogService.remove(id);
     }
 }

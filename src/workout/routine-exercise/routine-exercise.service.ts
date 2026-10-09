@@ -102,9 +102,12 @@ export class RoutineExerciseService {
         return await this.routineExerciseRepository.save(routineExercise);
     }
 
-    async remove(id: number): Promise<{ id: number }> {
+    async remove(id: number): Promise<{ message: string; id: number }> {
         await this.findOne(id);
         await this.routineExerciseRepository.delete(id);
-        return { id };
+        return {
+            message: `Detalle de ejercicio en rutina con ID ${id} eliminado exitosamente`,
+            id,
+        };
     }
 }

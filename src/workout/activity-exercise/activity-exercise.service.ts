@@ -127,9 +127,12 @@ export class ActivityExerciseService {
         return await this.activityExerciseRepository.save(activityExercise);
     }
 
-    async remove(id: number): Promise<{ id: number }> {
+    async remove(id: number): Promise<{ message: string; id: number }> {
         await this.findOne(id);
         await this.activityExerciseRepository.delete(id);
-        return { id };
+        return {
+            message: `Detalle de ejercicio de actividad con ID ${id} eliminado exitosamente`,
+            id,
+        };
     }
 }

@@ -45,9 +45,12 @@ export class ExerciseService {
         return await this.findOne(id);
     }
 
-    async remove(id: number): Promise<{ id: number }> {
+    async remove(id: number): Promise<{ message: string; id: number }> {
         await this.findOne(id);
         await this.exerciseRepository.delete(id);
-        return { id };
+        return {
+            message: `Ejercicio con ID ${id} eliminado exitosamente`,
+            id,
+        };
     }
 }

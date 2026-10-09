@@ -88,9 +88,12 @@ export class RoutineService {
         return await this.routineRepository.save(routine);
     }
 
-    async remove(id: number): Promise<{ id: number }> {
+    async remove(id: number): Promise<{ message: string; id: number }> {
         await this.findOne(id);
         await this.routineRepository.delete(id);
-        return { id };
+        return {
+            message: `Rutina con ID ${id} eliminada exitosamente`,
+            id,
+        };
     }
 }

@@ -123,7 +123,10 @@ export class UserService {
         await this.findOne(id);
         const result = await this.userRepository.delete(id);
         if (result.affected) {
-            return { id };
+            return {
+                message: `Usuario con ID ${id} eliminado exitosamente`,
+                id,
+            };
         }
         return null;
     }

@@ -127,9 +127,12 @@ export class ActivityLogService {
         return await this.activityLogRepository.save(activityLog);
     }
 
-    async remove(id: number): Promise<{ id: number }> {
+    async remove(id: number): Promise<{ message: string; id: number }> {
         await this.findOne(id);
         await this.activityLogRepository.delete(id);
-        return { id };
+        return {
+            message: `Registro de actividad con ID ${id} eliminado exitosamente`,
+            id,
+        };
     }
 }

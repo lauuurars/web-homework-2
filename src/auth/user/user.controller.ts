@@ -66,9 +66,9 @@ export class UserController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Permissions('manage_users')
-    async remove(@Param('id', PositiveIntPipe) id: number) {
-        await this.userService.remove(id);
+    remove(@Param('id', PositiveIntPipe) id: number) {
+        return this.userService.remove(id);
     }
 }

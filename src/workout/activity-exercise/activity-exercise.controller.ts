@@ -43,9 +43,9 @@ export class ActivityExerciseController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Permissions('delete_activity')
-    async remove(@Param('id', PositiveIntPipe) id: number) {
-        await this.activityExerciseService.remove(id);
+    remove(@Param('id', PositiveIntPipe) id: number) {
+        return this.activityExerciseService.remove(id);
     }
 }

@@ -43,9 +43,9 @@ export class RoleController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Permissions('manage_roles')
-    async remove(@Param('id', PositiveIntPipe) id: number) {
-        await this.roleService.remove(id);
+    remove(@Param('id', PositiveIntPipe) id: number) {
+        return this.roleService.remove(id);
     }
 }

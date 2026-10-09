@@ -43,9 +43,9 @@ export class RoutineController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Permissions('delete_routine')
-    async remove(@Param('id', PositiveIntPipe) id: number) {
-        await this.routineService.remove(id);
+    remove(@Param('id', PositiveIntPipe) id: number) {
+        return this.routineService.remove(id);
     }
 }

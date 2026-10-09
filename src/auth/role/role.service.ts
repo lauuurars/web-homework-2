@@ -32,10 +32,13 @@ export class RoleService {
         return await this.roleRepository.findOneBy({ id });
     }
 
-    async remove(id: number): Promise<{ id: number } | null> {
+    async remove(id: number): Promise<{ message: string; id: number } | null> {
         const result = await this.roleRepository.delete(id);
         if (result.affected) {
-            return { id };
+            return {
+                message: `Rol con ID ${id} eliminado exitosamente`,
+                id,
+            };
         }
         return null;
     }
