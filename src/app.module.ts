@@ -7,6 +7,9 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ExerciseModule } from './workout/exercise/exercise.module';
 import { RoutineModule } from './workout/routine/routine.module';
+import { RoutineExerciseModule } from './workout/routine-exercise/routine-exercise.module';
+import { ActivityLogModule } from './workout/activity-log/activity-log.module';
+import { ActivityExerciseModule } from './workout/activity-exercise/activity-exercise.module';
 
 @Module({
     imports: [
@@ -29,6 +32,9 @@ import { RoutineModule } from './workout/routine/routine.module';
         AuthModule,
         ExerciseModule,
         RoutineModule,
+        RoutineExerciseModule,
+        ActivityLogModule,
+        ActivityExerciseModule,
     ],
 
     controllers: [AppController],
